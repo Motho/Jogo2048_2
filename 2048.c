@@ -43,11 +43,10 @@ void move_esquerda(int largura, int altura,int tabuleiro[altura][largura]) {
             for (k = j - 1; k >= 0; k--) { // 'k' representado por 'j - 1' para ser a posição a esquerda            
                 if (tabuleiro[i][k] == 0) { // caso a posição a esquerda seja 0(vazio)
                     tabuleiro[i][k] = tabuleiro[i][j]; // pocição a esquerda recebe posição posterior a ela
-                    tabuleiro[i][j] = 0; // como a posição [i][j] foi movido para a esquerda, ela será zerada
                 } else if (tabuleiro[i][k] == tabuleiro[i][j]) { // se a posição a esquerda for um número igual
                     tabuleiro[i][k] = tabuleiro[i][j] * 2; // o valor que está a esquerda é dobrado(valores se juntam)
-                    tabuleiro[i][j] = 0; // como a posição [i][j] foi movido para a esquerda, ela será zerada
                 }
+		    tabuleiro[i][j]= 0;
                 break; // finaliza o movimento                
             }
         }
@@ -60,12 +59,11 @@ void move_cima(int altura,int largura,int tabuleiro[altura][largura]) {
         for (i = 0; i < altura - 1; i++) {
             for (k = i + 1; k < largura; k++) { // 'k' representado por 'i + 1' para ser a posição acima    
                 if (tabuleiro[k][j] == 0) { // caso a posição acima seja 0(vazio)
-                    tabuleiro[k][j] = tabuleiro[i][j]; // pocição acima recebe posição abaixo dela
-                    tabuleiro[i][j] = 0; // como a posição [i][j] foi movido para cima, ela será zerada                        
+                    tabuleiro[k][j] = tabuleiro[i][j]; // pocição acima recebe posição abaixo dela                        
                 } else if (tabuleiro[k][j] == tabuleiro[i][j]) { // se a posição acima for um número igual
                     tabuleiro[k][j] = tabuleiro[i][j] * 2; // o valor que está acima é dobrado(valores se juntam)
-                    tabuleiro[i][j] = 0; // como a posição [i][j] foi movido para cima, ela será zerada
                 }
+		    tabuleiro[i][j]= 0;
                 break; // finaliza o movimento
             }
         }
@@ -79,12 +77,11 @@ void move_baixo(int altura,int largura, int tabuleiro[altura][largura]) {
         for (i = altura - 1; i > 0; i--) {
             for (k = i - 1; k >= 0; k--) { // 'k' representado por 'i - 1' para ser a posição abaixo
                 if (tabuleiro[k][j] == 0) { // caso a posição abaixo seja 0(vazio)
-                    tabuleiro[k][j] = tabuleiro[i][j]; // pocição abaixo recebe posição acima dela
-                    tabuleiro[i][j] = 0; // como a posicao [i][j] foi movido para baixo, ela será zerada                       
+                    tabuleiro[k][j] = tabuleiro[i][j]; // pocição abaixo recebe posição acima dela                       
                 } else if (tabuleiro[k][j] == tabuleiro[i][j]) { // se a posição abaixo for um número igual 
-                    tabuleiro[k][j] = tabuleiro[i][j] * 2; // o valor que está abaixo é dobrado(valores se juntam)
-                    tabuleiro[i][j] = 0; // como a posição [i][j] foi movido para baixo, ela sera zerada
+                    tabuleiro[k][j] = tabuleiro[i][j] * 2; // o valor que está abaixo é dobrado(valores se juntam
                 }
+		    tabuleiro[i][j]= 0;
                 break; // finaliza o movimento
             }
         }
