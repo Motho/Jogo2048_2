@@ -14,6 +14,6 @@ char** tabuleiro;
   //inicializa o tabuleiro com 'A'
   for(int i= 0;i<TAMANHO_LINHA;i++){
     for(int j= 0;j<TAMANHO_COLUNA;j++){
-      tabuleiro[i][j]= 'A';
+      tabuleiro[i][j]= 'A';//com o que voce quer preencher
     }
   }
