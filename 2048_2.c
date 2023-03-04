@@ -5,14 +5,12 @@
 #include <time.h>
 
 #define N_jogadores 1
-#define largur 10
-#define altur 10
 
 void printa_tabela(int linhas, int colunas,int tabuleiro[linhas][colunas]){
 	
 	for(int i= 0;i< linhas;i++){
-    for(int j= 0;j<colunas;j++){
-      printf(" %d ",tabuleiro[i][j]);
+          for(int j= 0;j<colunas;j++){
+            printf(" %d ",tabuleiro[i][j]);
     }
     printf("\n");
   }
@@ -22,7 +20,7 @@ void printa_tabela(int linhas, int colunas,int tabuleiro[linhas][colunas]){
 //Funções feitas para o movimento do jogo(tentamos na verdade)
 
 void move_direita(int largura,int altura,int tabuleiro[altura][largura]) {
-    int i, j, k; // variável 'k' representa a posição que se encontra à direita 
+    int i, j, k; // variável 'k' representa a posição que se encontra à direita
     for (i = 0; i < altura; i++) { // for passando pela lina da tabela
         for (j = 0; j < largura - 1; j++) { // for passando pela coluna da tabela
             for (k = j + 1; k < largura; k++) {// 'k' representado por 'j + 1' para ser a posição a direita                
@@ -171,20 +169,23 @@ int jogo(int alt, int lar,int tabuleiro[alt][lar]){// as mecanicas do jogo comec
     }
 }
 
-
-//struct matriz{posicao[i][j]}
-
 int main(int argc,char* argv[2]){
   
   const int largura= atoi(argv[2]);
   const int altura= atoi(argv[1]);
 
  struct matriz{
-  int posicao[altur][largur];
+  int** posicao;
 }tabuleiro;
+	
+  tabuleiro.posicao= malloc(altura*sizeof(int));
+  
+  for(size_t i= 0;i<altura;i++){
+    tabuleiro.posicao[i]= malloc(lagura*sizeof(int));
+  }
 
 	for(int i= 0; i<altura;i++){ //preenche o vetor tabuleiro com 0
-    for(int j= 0;j<largura;j++){
+          for(int j= 0;j<largura;j++){
         tabuleiro.posicao[i][j]= 0;
     }
   }
